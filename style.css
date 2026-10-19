@@ -50,7 +50,7 @@ body {
   -webkit-font-smoothing: antialiased;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
-  background: #412803;
+  background: var(--terracotta-800);
 }
 
 img,
@@ -161,7 +161,6 @@ p {
   top: 0;
   z-index: 100;
   padding-top: env(safe-area-inset-top, 0px);
-  background: #412803;
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(90, 55, 30, 0.12);
 }
@@ -260,18 +259,10 @@ p {
 
 .hero {
   position: relative;
-  background:
-    radial-gradient(
-      ellipse at 78% -10%,
-      rgba(222,194,140,0.16),
-      transparent 55%
-    ),
-    linear-gradient(
-      160deg,
-      var(--terracotta-600) 0%,
-      var(--terracotta-700) 48%,
-      var(--terracotta-900) 100%
-    );
+  background-image: 
+    linear-gradient(rgba(141, 74, 46, 0.25), rgba(141, 74, 46, 0.25)), url(img/vela-com-plantas.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--ink-on-dark);
   padding: 96px 0 104px;
   overflow: hidden;
@@ -328,7 +319,7 @@ p {
   justify-content: center;
 }
 
-.hero .btn-outline {
+.btn-outline {
   border-color: rgba(243,228,203,0.55);
   color: var(--cream);
 }
@@ -421,7 +412,7 @@ p {
 
 .collection {
   padding: 30px 0 110px;
-  background: #412803;
+  background: var(--ink);
 }
 
 .product-grid {
@@ -430,13 +421,46 @@ p {
   gap: 28px;
 }
 
-.product-card {
-  background: var(--terracotta-900);
+.product-card{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border: 1px solid rgba(90,55,30,0.1);
   border-radius: var(--radius);
   padding: 30px 26px 26px;
   text-align: center;
   transition: border-color .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 65vh;
+}
+
+.botao-card {
+margin-top: auto;
+}
+
+#Bergamota {
+  background-image: linear-gradient(rgba(143, 82, 2, 0.25), rgba(253, 160, 53, 0.35)), url(img/Bergamota.png);
+}
+
+#Figo {
+  background-image: linear-gradient(rgba(58, 2, 143, 0.15), rgba(198, 66, 255, 0.20)), url(img/Figo.png);
+}
+
+#Yasmin {
+  background-image: linear-gradient(rgba(26, 109, 1, 0.35), rgba(138, 138, 138, 0.35)),url(img/Jasmin.jpg);
+}
+
+#Baunilha {
+  background-image: linear-gradient(rgba(221, 217, 0, 0.25), rgba(19, 58, 0, 0.35)),url(img/Baunilha.png);
+}
+
+#Lavanda {
+  background-image: linear-gradient(rgba(4, 96, 209, 0.25), rgba(34, 1, 73, 0.35)),url(img/Lavanda.png)
+}
+
+#CerejaAvelã {
+  background-image: linear-gradient(rgba(103, 50, 1, 0.25), rgba(253, 160, 53, 0.35)),url(img/Cereja&Avela.png);
 }
 
 .product-card:hover {
@@ -449,6 +473,14 @@ p {
   margin: 0 auto 18px;
 }
 
+#texto-personalizado{
+margin-bottom: 0;
+}
+
+#botao-personalizado {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
 .jar-body {
   fill: rgba(180,89,47,0.08);
   stroke: var(--terracotta-600);
@@ -495,12 +527,13 @@ p {
 }
 
 .product-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.9rem;
+  font-weight: 700;
 }
 
 .notes {
   margin-top: 8px;
-  font-size: 0.78rem;
+  font-size: 1rem;
   letter-spacing: 0.06em;
   color: white;
 }
@@ -510,8 +543,8 @@ p {
 .price {
   margin-top: 14px;
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--terracotta-700);
+  font-size: 1.5rem;
+  color: white;
 }
 
 /* ==========================================================
@@ -636,7 +669,7 @@ p {
   max-width: 900px;
   margin: 0 auto;
   padding: 42px;
-  background: #412803;
+  background: var(--terracotta-900);
   border: 1px solid var(--terracotta-700);
   text-align: center;
 }

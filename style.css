@@ -440,7 +440,6 @@ margin-top: auto;
 }
 
 #Bergamota {
-<<<<<<< HEAD
   background-image: linear-gradient(rgba(143, 82, 2, 0.25), rgba(253, 160, 53, 0.35)), url(img/BergamotaVela.jpeg);
 }
 
@@ -462,29 +461,6 @@ margin-top: auto;
 
 #CerejaAvelã {
   background-image: linear-gradient(rgba(103, 50, 1, 0.25), rgba(253, 160, 53, 0.35)),url(img/Cereja&AvelaVela.jpeg);
-=======
-  background-image: linear-gradient(rgba(143, 82, 2, 0.25), rgba(253, 160, 53, 0.35)), url(img/Bergamota.png);
-}
-
-#Figo {
-  background-image: linear-gradient(rgba(58, 2, 143, 0.15), rgba(198, 66, 255, 0.20)), url(img/Figo.png);
-}
-
-#Yasmin {
-  background-image: linear-gradient(rgba(26, 109, 1, 0.35), rgba(138, 138, 138, 0.35)),url(img/Jasmin.jpg);
-}
-
-#Baunilha {
-  background-image: linear-gradient(rgba(221, 217, 0, 0.25), rgba(19, 58, 0, 0.35)),url(img/Baunilha.png);
-}
-
-#Lavanda {
-  background-image: linear-gradient(rgba(4, 96, 209, 0.25), rgba(34, 1, 73, 0.35)),url(img/Lavanda.png)
-}
-
-#CerejaAvelã {
-  background-image: linear-gradient(rgba(103, 50, 1, 0.25), rgba(253, 160, 53, 0.35)),url(img/Cereja&Avela.png);
->>>>>>> ef75ab3207c8f5848de16a92ba528acb2fa1755a
 }
 
 .product-card:hover {

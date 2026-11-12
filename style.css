@@ -5,38 +5,37 @@
    ========================================================== */
 
 :root {
-  /* bordô (principal) · oliva (secundária) · rosa (detalhe) */
-  --bordo: #600E24;
-  --bordo-escuro: #3A0816;
-  --bordo-medio: #842A40;
-  --verde: #77924D;
-  --verde-escuro: #4F6530;
-  --fundo: #F5B7CE;
-  --fundo-claro: #FBE4EC;
-  --fundo: #FBF5F3;
-
-  --ink: #3A0F1A;
-  --ink-soft: #6A3A47;
-  --on-bordo-soft: #F3DCE5;
-  --acento: #77924D;
-  --acento-claro: #F5B7CE;
+  /* paleta: bordô · oliva · creme · rosa antigo · café */
+  --bordo: #641329;
+  --bordo-escuro: #310914;
+  --bordo-medio: #85364B;
+  --verde: #78845A;
+  --verde-escuro: #414B32;
+  --creme: #E9DFD2;        /* creme amendoado */
+  --fundo: #F2EADF;        /* creme claro */
+  --rosa: #C99A9C;         /* rosa antigo */
+  --ink: #352720;          /* marrom café */
+  --ink-soft: #6E5A50;     /* marrom suave */
+  --on-bordo-soft: #E9DFD2;
+  --acento: #78845A;
+  --acento-claro: #C99A9C;
 
   --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-body: "Jost", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --container: 1160px;
   --radius: 3px;
   --ease: cubic-bezier(.2, .7, .2, 1);
 
   --bloco-bg: var(--verde-escuro);
   --bloco-titulo: var(--fundo);
-  --bloco-texto: #E6EDD9;
+  --bloco-texto: #E9DFD2;
 
   --sup-bg: var(--bordo);
   --sup-titulo: var(--fundo);
-  --sup-texto: #F3DCE5;
-  --sup-suave: #E2B9C6;
-  --sup-linha: rgba(245, 183, 206, 0.35);
-  --sup-ornamento: var(--fundo);
+  --sup-texto: #E9DFD2;
+  --sup-suave: #D9C6BE;
+  --sup-linha: rgba(201, 154, 156, 0.45);
+  --sup-ornamento: var(--rosa);
   --sup-btn-bg: var(--fundo);
   --sup-btn-txt: var(--bordo);
 
@@ -651,7 +650,7 @@ margin-bottom: 0;
 
 .process {
   padding: 110px 0;
-  background: var(--fundo);
+  background: var(--creme);
 }
 
 .process-steps {
@@ -1045,7 +1044,7 @@ margin-bottom: 0;
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(rgba(96, 14, 36, 0.55), rgba(58, 8, 22, 0.68));
+  background: linear-gradient(rgba(49, 9, 20, 0.62), rgba(49, 9, 20, 0.84));
   pointer-events: none;
 }
 
@@ -1269,7 +1268,7 @@ margin-bottom: 0;
    BORDÔ · OLIVA · ROSA — composição das seções
    ========================================================== */
 
-.statement { background: var(--rosa-claro); }
+.statement { background: var(--creme); }
 .statement-text { color: var(--bordo); }
 .cta-final { background: var(--bordo); }
 .site-footer { background: var(--bordo-escuro); }
@@ -1280,7 +1279,7 @@ margin-bottom: 0;
   position: absolute;
   inset: 18px;
   z-index: 2;
-  border: 1px solid rgba(245, 183, 206, 0.45);
+  border: 1px solid rgba(201, 154, 156, 0.5);
   pointer-events: none;
   opacity: 0;
   animation: fade-in 1.6s ease .4s forwards;
@@ -1370,4 +1369,60 @@ margin-bottom: 0;
   .hero h1 .w > span { animation: none; transform: none; }
   .hero-frame, .hero-eyebrow { animation: none; opacity: 1; }
   .marquee-track { animation: none; }
+}
+
+
+/* ==========================================================
+   NOVA IDENTIDADE — bordô · oliva · creme (alternando seções)
+   ========================================================== */
+
+body { background: var(--fundo); color: var(--ink); }
+
+/* cabeçalho bordô escuro */
+.site-header { background: rgba(49, 9, 20, 0.97); border-bottom: 1px solid rgba(201, 154, 156, 0.28); }
+.brand-mark { box-shadow: 0 0 0 2px rgba(201, 154, 156, 0.6); }
+.main-nav a { color: var(--fundo); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; }
+.main-nav a::after { background: var(--rosa); }
+.btn-ghost { color: var(--fundo); border-color: rgba(242, 234, 223, 0.6); letter-spacing: .1em; text-transform: uppercase; font-size: .78rem; }
+.btn-ghost:hover { background: var(--fundo); color: var(--bordo); }
+.nav-toggle span { background: var(--fundo); }
+.scroll-progress { background: var(--rosa); }
+
+/* botões: bordô e creme */
+.hero .btn-primary, .cta-final .btn-primary, .product-card .btn-primary {
+  background: var(--fundo); color: var(--bordo); border-color: var(--fundo);
+}
+.hero .btn-primary:hover, .cta-final .btn-primary:hover, .product-card .btn-primary:hover {
+  background: var(--creme); border-color: var(--creme);
+}
+.hero .btn-outline, .cta-final .btn-outline { border-color: var(--fundo); color: var(--fundo); }
+.hero .btn-outline:hover, .cta-final .btn-outline:hover { background: var(--fundo); color: var(--bordo); }
+.news-form button:hover { background: var(--creme); }
+
+/* alternância de seções */
+.marquee { background: var(--verde); color: var(--bordo-escuro); border-block: 1px solid rgba(49, 9, 20, 0.2); }
+.marquee span::after { color: var(--bordo); }
+.statement { background: var(--creme); }
+.statement-text { color: var(--bordo); }
+.collection { background: var(--fundo); }
+.care-box { background: var(--verde-escuro); }
+.step-n { background: var(--creme); }
+
+/* cards da coleção */
+.product-card { border: 1px solid rgba(100, 19, 41, 0.4); box-shadow: 0 18px 34px -22px rgba(49, 9, 20, 0.6); }
+.product-card:hover { border-color: var(--rosa); box-shadow: 0 30px 48px -22px rgba(49, 9, 20, 0.75); }
+
+/* raminho de oliveira sobre os títulos */
+.section-head h2::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 14px;
+  background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23C99A9C' stroke-width='1.2' stroke-linecap='round'><path d='M16 29V8'/><path d='M16 22c-5 0-8-3-8-7 5 0 8 3 8 7z'/><path d='M16 16c5 0 8-3 8-7-5 0-8 3-8 7z'/><path d='M16 9c-2-2-2-4 0-6 2 2 2 4 0 6z'/></svg>") center / contain no-repeat;
+}
+
+@media (max-width: 720px) {
+  .main-nav { background: var(--bordo-escuro); border-bottom: 1px solid rgba(201, 154, 156, 0.28); }
+  .main-nav a { color: var(--fundo); border-bottom: 1px solid rgba(242, 234, 223, 0.14); }
 }

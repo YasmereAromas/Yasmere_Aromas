@@ -1426,3 +1426,113 @@ body { background: var(--fundo); color: var(--ink); }
   .main-nav { background: var(--bordo-escuro); border-bottom: 1px solid rgba(201, 154, 156, 0.28); }
   .main-nav a { color: var(--fundo); border-bottom: 1px solid rgba(242, 234, 223, 0.14); }
 }
+
+
+/* ==========================================================
+   CAMADA IMERSIVA — abertura, cursor, selo, faixas, cards 3D
+   ========================================================== */
+
+html.is-loading, html.is-loading body { overflow: hidden; }
+.is-loading [data-reveal], .is-loading .hero h1 .w > span, .is-loading .hero-eyebrow,
+.is-loading .hero-frame, .is-loading .scroll-cue, .is-loading .hero-badge { animation-play-state: paused; }
+
+/* abertura */
+.intro {
+  position: fixed; inset: 0; z-index: 9999;
+  display: grid; place-items: center;
+  background: var(--bordo-escuro); color: var(--fundo);
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.15s cubic-bezier(.76, 0, .24, 1);
+}
+.intro.out { clip-path: inset(0 0 100% 0); }
+.intro-inner { display: flex; flex-direction: column; align-items: center; gap: 14px; transition: opacity .5s ease, transform 1s var(--ease); }
+.intro.out .intro-inner { opacity: 0; transform: translateY(-30px); }
+.intro-inner img { width: 84px; height: 84px; border-radius: 50%; animation: intro-pulse 2.4s ease-in-out infinite; }
+.intro-word { overflow: hidden; padding: 0 .1em .14em; }
+.intro-word span {
+  display: block; font-family: var(--font-display); font-style: italic; font-weight: 500;
+  font-size: clamp(3.6rem, 13vw, 9.5rem); line-height: 1; transform: translateY(110%);
+  animation: rise 1.2s var(--ease) .2s forwards;
+}
+.intro-sub { font-size: .75rem; letter-spacing: .4em; text-transform: uppercase; color: var(--rosa); opacity: 0; animation: fade-in 1s ease .9s forwards; }
+.intro-bar { width: min(320px, 60vw); height: 1px; margin-top: 18px; background: rgba(201, 154, 156, .3); }
+.intro-bar i { display: block; height: 100%; background: var(--rosa); transform: scaleX(0); transform-origin: left; }
+.intro-count { position: absolute; right: 5vw; bottom: 4vh; font-family: var(--font-display); font-size: clamp(3rem, 9vw, 7rem); line-height: 1; color: var(--rosa); font-variant-numeric: tabular-nums; }
+@keyframes intro-pulse { 50% { transform: scale(1.08); } }
+
+/* cursor */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+.cursor, .cursor-dot { position: fixed; left: 0; top: 0; z-index: 9998; pointer-events: none; }
+.cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--rosa); }
+.cursor span {
+  display: grid; place-items: center; width: 38px; height: 38px; margin: -19px 0 0 -19px;
+  border: 1px solid var(--rosa); border-radius: 50%;
+  font: 500 .72rem var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--bordo);
+  transition: width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), background .3s ease, opacity .3s ease;
+  mix-blend-mode: normal;
+}
+.cursor.is-link span { width: 64px; height: 64px; margin: -32px 0 0 -32px; background: rgba(201, 154, 156, .28); }
+.cursor.is-card span { width: 92px; height: 92px; margin: -46px 0 0 -46px; background: var(--rosa); }
+.cursor.is-hidden { opacity: 0; }
+
+/* hero: selo giratório e palavra gigante */
+.hero-badge {
+  position: absolute; right: 6vw; bottom: 64px; z-index: 3; width: 132px; height: 132px;
+  display: grid; place-items: center; color: var(--fundo);
+  opacity: 0; animation: fade-in 1.2s ease 1.2s forwards;
+}
+.hero-badge svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 24s linear infinite; }
+.hero-badge text { fill: var(--fundo); font: 500 13.5px var(--font-body); letter-spacing: .08em; }
+.hero-badge span { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--fundo); color: var(--bordo); font-size: 1.2rem; transition: transform .4s var(--ease); }
+.hero-badge:hover span { transform: translateY(4px) scale(1.1); }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.hero-bigword {
+  position: absolute; left: 4vw; bottom: -.2em; z-index: 1; pointer-events: none; white-space: nowrap;
+  font-family: var(--font-display); font-style: italic; font-size: 23vw; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1px rgba(201, 154, 156, .4);
+}
+
+/* títulos numerados */
+.kicker { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 18px; font-size: .72rem; letter-spacing: .34em; text-transform: uppercase; color: var(--bordo-medio); }
+.kicker::after { content: ""; width: 38px; height: 1px; background: currentColor; }
+.collection + .collection .kicker, .section-head--light .kicker { color: var(--rosa); }
+
+/* seções arredondadas empilhadas */
+main section:not(.hero), .site-footer { position: relative; border-radius: 44px 44px 0 0; margin-top: -44px; box-shadow: 0 -22px 40px -30px rgba(49, 9, 20, .45); }
+main section:not(.hero) > .wrap:first-child { padding-top: 44px; }
+.marquee + section { margin-top: 0; border-radius: 0; box-shadow: none; }
+.marquee + section > .wrap:first-child { padding-top: 0; }
+
+/* faixas gigantes */
+.mega { background: var(--bordo-escuro); padding: 90px 0 110px !important; overflow: hidden; }
+.mega-row { display: block; width: max-content; font-family: var(--font-display); font-style: italic; font-size: clamp(4.2rem, 13vw, 12rem); line-height: 1.05; white-space: nowrap; will-change: transform; }
+.mega-row.solid { color: var(--fundo); }
+.mega-row.outline { color: transparent; -webkit-text-stroke: 1.5px var(--rosa); margin-left: -30vw; }
+
+/* números */
+.stats { background: var(--fundo); padding: 70px 0 90px !important; }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+.stat b { display: block; font-family: var(--font-display); font-weight: 500; font-size: clamp(4rem, 9vw, 7.5rem); line-height: 1; color: var(--bordo); }
+.stat span { display: block; margin-top: 10px; font-size: .74rem; letter-spacing: .24em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* cards 3D */
+.product-card, .product-card:hover { transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)); }
+.product-card:hover { --ty: -6px; }
+.product-card::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .4s ease; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(201, 154, 156, .26), transparent 60%); }
+.product-card:hover::after { opacity: 1; }
+.card-n { position: absolute; top: 14px; right: 18px; z-index: 2; font-family: var(--font-display); font-style: italic; font-size: 1.1rem; color: var(--rosa); }
+
+@media (max-width: 720px) {
+  main section:not(.hero), .site-footer { border-radius: 28px 28px 0 0; margin-top: -28px; }
+  main section:not(.hero) > .wrap:first-child { padding-top: 28px; }
+  .hero-badge { width: 96px; height: 96px; right: 16px; bottom: 56px; }
+  .hero-badge span { width: 34px; height: 34px; }
+  .stats-grid { grid-template-columns: 1fr; gap: 34px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-badge svg, .intro-inner img { animation: none; }
+  .hero-badge { animation: none; opacity: 1; }
+  .mega-row { transform: none !important; }
+}
